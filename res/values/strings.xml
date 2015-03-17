@@ -4,5 +4,16 @@
     <string name="app_name">MyBookSample</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+    <string name="Author_name">Name</string>
+    <string name="Author_surname">Surname</string>
+    
+    <string name="Book_authorId">Author</string>
+	<string name="Book_title">Title</string>
+	<string name="Book_description">Description</string>
+	<string name="Book_edition">Edition Type</string>
+	<string name="Book_publishDate">Publish Date</string>
+	<string name="Book_pages">Number of Pages</string>
+	<string name="Book_coverColor">Cover Color</string>
 
 </resources>
