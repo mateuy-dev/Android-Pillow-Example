@@ -2,6 +2,8 @@ package cat.my.android.mybooksample;
 
 import cat.my.android.mybooksample.models.Author;
 import cat.my.android.mybooksample.models.Book;
+import cat.my.android.pillow.Pillow;
+import cat.my.android.pillow.data.sync.SynchOnConnectionChangeReceiver;
 import cat.my.android.pillow.view.NavigationUtil;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -17,7 +19,21 @@ import android.widget.Button;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
+	SynchOnConnectionChangeReceiver reciever;
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		reciever = new SynchOnConnectionChangeReceiver();
+		reciever.register(this, Pillow.getInstance(this).getSynchManager());
+	}
 
+	@Override
+	protected void onPause() {
+		unregisterReceiver(reciever);
+		super.onPause();
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
